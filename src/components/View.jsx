@@ -21,17 +21,18 @@ function View({ uploadVideoStatus }) {
 
   return (
     <>
-      <Row>
-        {
-          allVideos.length > 0 ?
-            allVideos?.map((videos) => (
-              <Col sm={4}>
-                <VideoCard displayVideo={videos} setDeleteVideoStatus={setDeleteVideoStatus} />
-              </Col>
-            )) :
-            <p>No videos available</p>
-        }
-      </Row>
+<Row>
+  {allVideos.length > 0 ? (
+    allVideos.map((videos, index) => (
+      <Col key={index} xs={12} sm={7}  lg={5}>
+        <VideoCard displayVideo={videos} setDeleteVideoStatus={setDeleteVideoStatus} />
+      </Col>
+    ))
+  ) : (
+    <p>No videos available</p>
+  )}
+</Row>
+
     </>
   )
 }
